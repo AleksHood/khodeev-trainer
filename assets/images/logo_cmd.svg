@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 40" width="128" height="40" fill="none">
+  <!-- ЦМД Мозаичная буква Ц (фирменный знак) -->
+  <g transform="translate(2, 2)">
+    <path d="M13 0 H6 C2.68 0 0 2.68 0 6 V19 H10 V9.5 C10 7.57 11.57 6 13.5 6 H18 V0 H13 Z" fill="#8B5CF6"/>
+    <path d="M18 0 H29 V10 H18 V0 Z" fill="#F43F5E"/>
+    <path d="M29 0 H33 C36.32 0 39 2.68 39 6 V26 H29 V10 H29 V0 Z" fill="#0D9488"/>
+    <path d="M0 19 V28 C0 32.42 3.58 36 8 36 H22 V26 H8 C6.34 26 5 24.66 5 23 V19 H0 Z" fill="#3B82F6"/>
+    <rect x="22" y="26" width="17" height="10" rx="2.5" fill="#14B8A6"/>
+  </g>
+  <!-- Текст ЦМД без фразы 'Московское долголетие' -->
+  <text x="50" y="29.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="-0.01em">ЦМД</text>
+</svg>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алексей Ходеев — Бизнес-тренер по практическому применению ИИ и B2B</title>
+  <meta name="description" content="Сертифицированный бизнес-тренер по практическому применению ИИ. Корпоративные воркшопы: автоматизация Excel, анализ данных, подготовка презентаций, B2B-продажи и управление.">
+  
+  <!-- Google Fonts: Manrope, Plus Jakarta Sans & Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=font_v25">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon.png">
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER: ЭЛЕГАНТНАЯ ПЛАВАЮЩАЯ НАВИГАЦИЯ С ЭФФЕКТОМ СТЕКЛА
+       ========================================================================= -->
+  <header class="header main-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo-block">
+        <img src="assets/images/avatar_alexey.webp" alt="Алексей Ходеев" class="logo-avatar" width="44" height="44">
+        <div class="logo-text">
+          <span class="logo-title">Алексей Ходеев</span>
+          <span class="logo-sub">Бизнес-тренер</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Основная навигация">
+        <a href="#hero" class="nav-link active" data-nav-target="hero">Главная</a>
+        <a href="#trainings" class="nav-link" data-nav-target="trainings">Тренинги</a>
+        <a href="#about" class="nav-link" data-nav-target="about">О тренере</a>
+        <a href="#contacts" class="nav-link" data-nav-target="contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contacts" class="btn btn-primary btn-sm">
+          Обсудить обучение
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- =======================================================================
+         SECTION 1: HERO (СТУДИЙНЫЙ ФОН, ЗАТЕМНЕНИЕ СЛЕВА, КРУПНЫЙ АЛЕКСЕЙ СПРАВА)
+         ======================================================================= -->
+    <section class="hero-section" id="hero">
+      <!-- Двигающаяся органическая картинка на молочном фоне -->
+      <div class="hero-moving-backdrop" aria-hidden="true">
+        <div class="hero-motion-orb hero-motion-orb-1"></div>
+        <div class="hero-motion-orb hero-motion-orb-2"></div>
+        <div class="hero-motion-orb hero-motion-orb-3"></div>
+      </div>
+      <!-- Интерактивная живая нейросетевая анимация на фоне -->
+      <canvas id="hero-particles-canvas" class="hero-particles-canvas" aria-hidden="true"></canvas>
+
+      <!-- Фигура Алексея поверх холста с линиями (линии проходят ПОД фигурой) -->
+      <div class="hero-trainer-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-grid">
+          
+          <div class="hero-content">
+            <h1 class="hero-main-title">
+              Развиваю<br>
+              команды.<br>
+              <span class="title-highlight">Повышаю<br>
+              эффективность<br>
+              бизнеса.</span>
+            </h1>
+
+            <div class="hero-author-badge">
+              <span class="author-badge-role">Бизнес-тренер</span>
+              <span class="author-badge-name">Алексей Ходеев</span>
+            </div>
+
+            <div class="hero-social-links" aria-label="Социальные сети Алексея Ходеева">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-square-btn social-youtube" title="YouTube" aria-label="YouTube">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-square-btn social-instagram" title="Instagram" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-square-btn social-tiktok" title="TikTok" aria-label="TikTok">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.86-4.47V8.71a8.18 8.18 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.86-.14z"/>
+                </svg>
+              </a>
+
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-square-btn social-setka" title="Сетка" aria-label="Сетка">
+                <img src="assets/images/social_setka.webp" alt="Сетка" class="social-setka-icon" width="20" height="19">
+              </a>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Пространство под фигуру в едином интегрированном фоне -->
+          <div class="hero-visual-wrap" aria-hidden="true"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION: TRUST BAR (ОПЫТ ОБУЧЕНИЯ И ПАРТНЕРЫ)
+         ======================================================================= -->
+    <section class="trust-bar-section" aria-label="Клиенты и партнеры">
+      <div class="container">
+        
+        <div class="trust-header-block">
+          <h2 class="trust-heading">Опыт корпоративного обучения команд и интеграции решений</h2>
+        </div>
+
+        <div class="trust-logos-grid">
+          
+          <!-- 1. Кредит Европа Банк -->
+          <div class="trust-card" title="Кредит Европа Банк">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_credit_europe.svg" alt="Кредит Европа Банк" class="trust-logo-svg logo-ceb">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">Кредит Европа Банк</span>
+              <span class="trust-card-industry">Банковский сектор</span>
+            </div>
+          </div>
+
+          <!-- 2. OZON -->
+          <div class="trust-card" title="OZON">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_ozon.svg" alt="OZON" class="trust-logo-svg logo-ozon">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">OZON</span>
+              <span class="trust-card-industry">E-commerce ритейл</span>
+            </div>
+          </div>
+
+          <!-- 3. ЦМД -->
+          <div class="trust-card" title="Центр Московского Долголетия">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_cmd.svg" alt="Центр Московского Долголетия" class="trust-logo-svg logo-cmd">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">Центр Московского Долголетия</span>
+              <span class="trust-card-industry">Городские программы</span>
+            </div>
+          </div>
+
+          <!-- 4. Вербо -->
+          <div class="trust-card" title="Вербо">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_verbo.svg" alt="Вербо" class="trust-logo-svg logo-verbo">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">Вербо</span>
+              <span class="trust-card-industry">IT & EdTech платформы</span>
+            </div>
+          </div>
+
+          <!-- 5. Телеконтакт -->
+          <div class="trust-card" title="Телеконтакт">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_telecontact.svg" alt="Телеконтакт" class="trust-logo-svg logo-telecontact">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">Телеконтакт</span>
+              <span class="trust-card-industry">Контакт-центры</span>
+            </div>
+          </div>
+
+          <!-- 6. Finconnect -->
+          <div class="trust-card" title="Finconnect">
+            <div class="trust-card-logo-box">
+              <img src="assets/images/logo_finconnect.svg" alt="Finconnect" class="trust-logo-svg logo-finconnect">
+            </div>
+            <div class="trust-card-meta">
+              <span class="trust-card-title">Finconnect</span>
+              <span class="trust-card-industry">Финтех-экосистемы</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: ПРОГРАММЫ ТРЕНИНГОВ (8 КАРТОЧЕК С КАТЕГОРИЯМИ И МОДАЛКАМИ)
+         ======================================================================= -->
+    <section class="section-block trainings-section" id="trainings">
+      <div class="container">
+        
+        <div class="section-header-center">
+          <h2 class="section-title">Программы корпоративного обучения</h2>
+          
+          <!-- Фильтры по направлениям -->
+          <div class="trainings-filter-bar">
+            <button class="filter-btn active" data-filter="popular">Популярные программы</button>
+            <button class="filter-btn" data-filter="all">Все программы</button>
+            <button class="filter-btn" data-filter="ai">Прикладной ИИ</button>
+            <button class="filter-btn" data-filter="mgmt">Менеджмент</button>
+            <button class="filter-btn" data-filter="sales">Продажи</button>
+          </div>
+        </div>
+
+        <div class="trainings-grid">
+
+          <!-- 1. Таблицы ИИ (Популярные) -->
+          <article class="training-card" data-category="ai popular" data-training-id="ai-tables">
+            <div class="training-card-media">
+              <img src="assets/images/cover_ai_tables.webp" alt="Работа с таблицами при помощи ИИ" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">6 часов · Интенсив</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Работа с таблицами<br>при помощи ИИ</h3>
+              <ul class="training-bullets">
+                <li>Создание и редактирование Excel-таблиц – от простых до многостраничных таблиц со сложной логикой</li>
+                <li>Контроль работы ИИ: доведение точности работы ИИ до 100%, без галлюцинаций и ошибок</li>
+                <li>Создание макросов и HTML-инструментов для автоматизации задач, без знания программирования</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="ai-tables">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_AI_Tables_Khodeev.pdf" download="Программа_Ходеев_Работа_с_таблицами_ИИ.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Шахматы в управлении командой (Популярные) -->
+          <article class="training-card" data-category="mgmt popular" data-training-id="chess-mgmt">
+            <div class="training-card-media">
+              <img src="assets/images/cover_chess.webp" alt="Шахматы в управлении командой" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">8 часов · Воркшоп</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Шахматы в управлении<br>командой</h3>
+              <ul class="training-bullets">
+                <li>Освоение основ шахмат и развитие стратегического мышления через игру</li>
+                <li>Изучение инструментов управления командой: делегирование, распределение ролей, постановка целей и ситуационное лидерство</li>
+                <li>Решение бизнес-кейсов и применение шахматной логики для принятия управленческих решений</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="chess-mgmt">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_Chess_Management_Khodeev.pdf" download="Программа_Ходеев_Шахматы_в_управлении.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Тренинг под ваш запрос (Популярные) -->
+          <article class="training-card" data-category="custom popular" data-training-id="custom-training">
+            <div class="training-card-media">
+              <img src="assets/images/cover_custom.webp" alt="Тренинг под ваш запрос" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">Разработка от 5 дней</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Тренинг под ваш запрос</h3>
+              <ul class="training-bullets">
+                <li>Глубокий аудит бизнес-процессов,<br>болей и специфики компании</li>
+                <li>Разработка авторской программы, практических симуляций и кейсов<br>для решения бизнес-задач</li>
+                <li>Подготовка раздаточных материалов и чек-листов для посттренингового сопровождения</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="custom-training">
+                  Программа тренинга →
+                </button>
+                <button class="btn btn-card-pdf" data-open-modal title="Обсудить задачу">
+                  Запрос ↗
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Презентации ИИ -->
+          <article class="training-card is-hidden" data-category="ai" data-training-id="ai-pres">
+            <div class="training-card-media">
+              <img src="assets/images/cover_ai_pres.webp" alt="Создание презентаций с помощью ИИ" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">6 часов · Интенсив</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Создание презентаций<br>с помощью ИИ</h3>
+              <ul class="training-bullets">
+                <li>Создание презентаций в PowerPoint<br>в различных стилях, от строго делового<br>до дизайнерского</li>
+                <li>Правильное распределение ролей между моделями для создания единого продукта</li>
+                <li>Подборка лучших инструментов для работы со структурой, текстом и дизайном презентаций</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="ai-pres">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_AI_Presentations_Khodeev.pdf" download="Программа_Ходеев_Создание_презентаций_ИИ.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. ИИ-агенты -->
+          <article class="training-card is-hidden" data-category="ai" data-training-id="ai-agents">
+            <div class="training-card-media">
+              <img src="assets/images/cover_ai_agents.webp" alt="Применение ИИ-агентов в бизнесе" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">6 часов · Воркшоп</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Применение ИИ-агентов<br>в бизнесе</h3>
+              <ul class="training-bullets">
+                <li>Изучение принципов работы ИИ-агентов и безопасного делегирования им задач</li>
+                <li>Создание ИИ-помощников для автоматизации рутины руководителя: от календарей и встреч до почты и документов</li>
+                <li>Настройка ИИ-агентов для контроля задач сотрудников, мониторинга информации и аналитики для принятия решений</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="ai-agents">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_AI_Agents_Business_Khodeev.pdf" download="Программа_Ходеев_ИИ_Агенты_в_бизнесе.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. SPIN-продажи -->
+          <article class="training-card is-hidden" data-category="sales" data-training-id="spin-sales">
+            <div class="training-card-media">
+              <img src="assets/images/cover_spin.webp" alt="Тренинг SPIN продажи" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">6 часов · 1 день</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">SPIN продажи</h3>
+              <ul class="training-bullets">
+                <li>Кто задает вопросы – тот управляет беседой: методика на базе исследования 35 000 встреч</li>
+                <li>Конструирование системы SPIN-вопросов и удержание внимания клиента до конца встречи</li>
+                <li>Техника подведения клиента к тому, чтобы он сам продавал ваши решения</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="spin-sales">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_SPIN_Sales_Khodeev.pdf" download="Программа_Ходеев_SPIN_Продажи_B2B.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Холодные продажи по телефону -->
+          <article class="training-card is-hidden" data-category="sales" data-training-id="cold-calls">
+            <div class="training-card-media">
+              <img src="assets/images/cover_cold_calls.webp" alt="Холодные продажи по телефону" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">6 часов</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Холодные продажи по телефону</h3>
+              <ul class="training-bullets">
+                <li>Разбор разницы в продажах между очными продажами и продажами по телефону</li>
+                <li>5 этапов продаж с фокусом на специфику продаж по телефону</li>
+                <li>Эмоциональная устойчивость: как не перегорать от работы на линии</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="cold-calls">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_Cold_Calls_Khodeev.pdf" download="Программа_Ходеев_Холодные_звонки_ЛПР.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Этапы продаж в B2C -->
+          <article class="training-card is-hidden" data-category="sales" data-training-id="sales-stages">
+            <div class="training-card-media">
+              <img src="assets/images/cover_sales_stages.webp" alt="Этапы продаж в B2C" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">8 часов · Тренинг</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Этапы продаж в B2C</h3>
+              <ul class="training-bullets">
+                <li>Структура эффективных продаж – пять этапов сделки и логика перехода от первого контакта к заключению договора</li>
+                <li>Психология покупателя – как формировать доверие, влиять на принятие решений и аргументировать ценность предложения</li>
+                <li>Практика переговоров – отработка техник продаж в ролевых играх, разбор ошибок и сложных ситуаций с клиентами</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="sales-stages">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_Sales_Stages_Retail_Khodeev.pdf" download="Программа_Ходеев_Этапы_продаж_в_ритейле.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. SMART цели -->
+          <article class="training-card is-hidden" data-category="mgmt" data-training-id="smart-goals">
+            <div class="training-card-media">
+              <img src="assets/images/cover_smart.webp" alt="Постановка целей по SMART" class="training-cover-img" width="600" height="323" loading="lazy">
+            </div>
+            <div class="training-card-body">
+              <div class="training-card-meta">
+                <span class="meta-duration">4 часа · Практикум</span>
+                <span class="meta-mode">Очно / Онлайн / Вебинар</span>
+              </div>
+              <h3 class="training-card-title">Постановка целей по SMART</h3>
+              <ul class="training-bullets">
+                <li>Освоение методики SMART для постановки конкретных и достижимых целей</li>
+                <li>Декомпозиция целей на задачи, сроки и измеримые результаты</li>
+                <li>Практика постановки целей на реальных рабочих примерах</li>
+              </ul>
+              <div class="training-card-actions">
+                <button class="btn btn-card-primary" data-open-training-modal="smart-goals">
+                  Программа тренинга →
+                </button>
+                <a href="assets/docs/Programma_SMART_Goals_Khodeev.pdf" download="Программа_Ходеев_SMART_постановка_целей.pdf" class="btn btn-card-pdf" title="Скачать PDF">
+                  PDF ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: О ТРЕНЕРЕ (EDITORIAL ЦИТАТА, ЦИФРЫ, МЕТОДОЛОГИЯ, КВАЛИФИКАЦИЯ)
+         ======================================================================= -->
+    <section class="section-block about-section" id="about">
+      <div class="container">
+
+        <!-- Премиальный Bento-блок: Квалификация и Процесс работы -->
+        <div class="about-bento-wrapper">
+          <div class="about-bento-grid">
+            
+            <!-- Левая колонка: Опыт и образование -->
+            <div class="about-bento-left">
+              <div class="about-bento-col-header">
+                <h2 class="about-bento-title">Квалификация<br>и образование</h2>
+                <div class="about-bento-accent-line" aria-hidden="true"></div>
+              </div>
+
+              <!-- Список дипломов и сертификатов -->
+              <div class="bento-credentials-list">
+                <div class="bento-credential-card">
+                  <div class="bento-cred-icon icon-grad" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                  </div>
+                  <div class="bento-cred-body">
+                    <h4 class="bento-cred-title">Сертифицированный бизнес-тренер</h4>
+                    <p class="bento-cred-desc">Школа тренеров Молоканова и Сикирина. Международные стандарты ICF. Разработка методологии тренинга, работа с групповой динамикой, фасилитация сессий.</p>
+                  </div>
+                </div>
+
+                <div class="bento-credential-card">
+                  <div class="bento-cred-icon icon-doc" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  </div>
+                  <div class="bento-cred-body">
+                    <h4 class="bento-cred-title">Профессиональная программа «Бизнес-тренер»</h4>
+                    <p class="bento-cred-desc">МУПП. Профессиональная переподготовка гос. образца. Педагогический дизайн программ, оценка результатов и системное внедрение навыков в регламенты компании.</p>
+                  </div>
+                </div>
+
+                <div class="bento-credential-card">
+                  <div class="bento-cred-icon icon-brain" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+                  </div>
+                  <div class="bento-cred-body">
+                    <h4 class="bento-cred-title">Высшее психологическое образование</h4>
+                    <p class="bento-cred-desc">МГППУ. Педагогическая психология.</p>
+                  </div>
+                </div>
+
+                <div class="bento-credential-card">
+                  <div class="bento-cred-icon icon-ai" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                  </div>
+                  <div class="bento-cred-body">
+                    <h4 class="bento-cred-title">Создание ИИ-агентов для бизнеса</h4>
+                    <p class="bento-cred-desc">Курс Alexey Andreevsky. Проектирование мультиагентных систем: автоматизация рутины и аналитика рабочих данных.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Правая колонка: Как мы работаем -->
+            <div class="about-bento-right">
+              <div class="about-bento-col-header about-bento-col-header-right">
+                                <h2 class="about-bento-title">От задачи —<br>к результату</h2>
+                <div class="about-bento-accent-line" aria-hidden="true"></div>
+              </div>
+
+              <!-- 4 шага процесса -->
+              <div class="bento-steps-list">
+                <div class="bento-step-card">
+                  <div class="bento-step-icon step-icon-search" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  </div>
+                  <div class="bento-step-body">
+                    <h4 class="bento-step-title">Диагностика бизнес-запроса</h4>
+                    <p class="bento-step-desc">Разбираем задачи бизнеса и корневые причины проблемы. Не подменяем реальные потребности готовыми шаблонами.</p>
+                  </div>
+                </div>
+
+                <div class="bento-step-card">
+                  <div class="bento-step-icon step-icon-target" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                  </div>
+                  <div class="bento-step-body">
+                    <h4 class="bento-step-title">Проектирование решения</h4>
+                    <p class="bento-step-desc">Формируем цели и адаптируем практические кейсы под специфику вашей компании и уровень сотрудников.</p>
+                  </div>
+                </div>
+
+                <div class="bento-step-card">
+                  <div class="bento-step-icon step-icon-team" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  </div>
+                  <div class="bento-step-body">
+                    <h4 class="bento-step-title">Практическое обучение</h4>
+                    <p class="bento-step-desc">Отрабатываем навыки на реальных рабочих файлах команды. Фокус на мгновенном применении инструментов в работе.</p>
+                  </div>
+                </div>
+
+                <div class="bento-step-card">
+                  <div class="bento-step-icon step-icon-trend" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                  </div>
+                  <div class="bento-step-body">
+                    <h4 class="bento-step-title">Посттренинговое сопровождение</h4>
+                    <p class="bento-step-desc">Закрепляем навыки на практике: разбираем вопросы участников и сопровождаем внедрение инструментов в процессы.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Нижняя статусная плашка на всю ширину Bento-блока -->
+          <div class="about-bento-footer">
+            <div class="bento-footer-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Москва (очные тренинги с выездом) / Онлайн по всему миру</span>
+            </div>
+            <div class="bento-footer-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Официальный договор, закрывающие акты для юрлиц (ИП / самозанятость)</span>
+            </div>
+            <div class="bento-footer-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Бронирование дат: от 1 недели до старта обучения</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         SECTION 5: КОНТАКТЫ И ОБСУЖДЕНИЕ ОБУЧЕНИЯ
+         ======================================================================= -->
+    <section class="section-block contacts-section" id="contacts">
+      <div class="container">
+        
+        <div class="contacts-wrapper">
+          <div class="contacts-grid">
+            
+            <!-- Левая колонка: Прямая связь и Telegram -->
+            <div class="contacts-info-card">
+              <!-- Фоновый визуал: панорамный офис + силуэт Алексея Ходеева -->
+              <div class="contacts-trainer-visual" aria-hidden="true">
+                <img src="assets/images/contacts_trainer_large.webp?v=v_pockets_new_tie_v3" alt="Алексей Ходеев" class="contacts-trainer-bg-img" width="1200" height="640" loading="lazy">
+              </div>
+
+              <div class="contacts-info-content">
+                <!-- Верхний бейдж-айброу с акцентной линией -->
+                <div class="contacts-eyebrow-ref">
+                  <span class="contacts-eyebrow-text">ПРОФЕССИОНАЛЬНЫЙ БИЗНЕС-ТРЕНЕР</span>
+                  <span class="contacts-eyebrow-line"></span>
+                </div>
+
+                <div class="contacts-info-main">
+                  <h2 class="contacts-title">
+                    Обсудить<br>
+                    формат<br>
+                    <span class="text-mint">под вашу<br>
+                    команду</span>
+                  </h2>
+
+                  <!-- Цитата / Лид с зеленой вертикальной чертой -->
+                  <div class="contacts-quote-ref">
+                    <div class="contacts-quote-bar"></div>
+                    <p class="contacts-quote-text">
+                      Расскажу о возможностях, подберу<br>
+                      подходящий формат обучения и отвечу<br>
+                      на все ваши вопросы.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Контактная капсула по референсу (Telegram и Телефон) -->
+                <div class="contacts-bar-ref">
+                  <a href="https://t.me/trainerofhappiness" target="_blank" rel="noopener noreferrer" class="contacts-bar-btn">
+                    <div class="contacts-bar-icon tg">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    </div>
+                    <div class="contacts-bar-info">
+                      <span class="contacts-bar-label">TELEGRAM</span>
+                      <span class="contacts-bar-value">@trainerofhappiness ↗</span>
+                    </div>
+                  </a>
+                  <div class="contacts-bar-sep"></div>
+                  <a href="tel:+79991121756" class="contacts-bar-btn">
+                    <div class="contacts-bar-icon phone">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="contacts-bar-info">
+                      <span class="contacts-bar-label">ТЕЛЕФОН</span>
+                      <span class="contacts-bar-value">8-999-112-17-56</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Правая колонка: Интерактивная форма заявки -->
+            <div class="contacts-form-card">
+              <div class="form-eyebrow-ref">
+                <span class="form-eyebrow-pill"></span>
+                <span class="form-eyebrow-text">ОСТАВЬТЕ ЗАЯВКУ</span>
+              </div>
+              <h3 class="form-title">Запросить программу<br>и расчет стоимости</h3>
+              <p class="form-desc">Оставьте заявку, и я свяжусь с вами, чтобы уточнить детали, обсудить задачи и предложить оптимальный формат обучения для вашей команды.</p>
+              
+              <form id="contact-form" class="inquiry-form">
+                <div class="form-fields-row">
+                  <div class="form-field-box">
+                    <div class="form-field-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="form-field-content">
+                      <label for="form-name" class="form-field-label">Ваше имя *</label>
+                      <input type="text" id="form-name" name="name" class="form-field-input" autocomplete="name" required>
+                    </div>
+                  </div>
+
+                  <div class="form-field-box">
+                    <div class="form-field-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div class="form-field-content">
+                      <label for="form-contact" class="form-field-label">Телефон или Telegram *</label>
+                      <input type="text" id="form-contact" name="contact" class="form-field-input" autocomplete="tel" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field-box">
+                  <div class="form-field-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"></path></svg>
+                  </div>
+                  <div class="form-field-content">
+                    <label for="form-company" class="form-field-label">Компания / Сфера деятельности *</label>
+                    <input type="text" id="form-company" name="company" class="form-field-input" autocomplete="organization" required>
+                  </div>
+                </div>
+
+                <div class="form-field-box form-field-select-box" id="program-select-wrapper">
+                  <div class="form-field-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  </div>
+                  <div class="form-field-content">
+                    <label for="form-program" class="form-field-label">Интересующая программа</label>
+                    <div class="custom-select-trigger" id="custom-select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                      <span class="custom-select-value" id="custom-select-value">Индивидуальный формат под команду</span>
+                    </div>
+                    <select id="form-program" name="program" class="form-field-select visually-hidden-select" tabindex="-1">
+                      <option value="Работа с таблицами при помощи ИИ">Работа с таблицами при помощи ИИ</option>
+                      <option value="Создание презентаций и анализ данных">Создание презентаций и анализ данных</option>
+                      <option value="Применение ИИ-агентов в бизнесе">Применение ИИ-агентов в бизнесе</option>
+                      <option value="SPIN-продажи в B2B">SPIN-продажи в B2B</option>
+                      <option value="Холодные звонки и выход на ЛПР">Холодные звонки и выход на ЛПР</option>
+                      <option value="Этапы продаж в ритейле">Этапы продаж в ритейле</option>
+                      <option value="Управление SMART">Управление по SMART</option>
+                      <option value="Шахматы как модель управления">Шахматы как модель управления</option>
+                      <option value="Индивидуальная программа" selected>Индивидуальный формат под команду</option>
+                    </select>
+                  </div>
+                  <div class="form-field-select-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+
+                  <!-- Выпадающее окно: просторное, с центровкой названий программ посередине -->
+                  <div class="custom-select-dropdown" id="custom-select-dropdown" role="listbox">
+                    <div class="custom-select-option" data-value="Работа с таблицами при помощи ИИ">Работа с таблицами при помощи ИИ</div>
+                    <div class="custom-select-option" data-value="Создание презентаций и анализ данных">Создание презентаций и анализ данных</div>
+                    <div class="custom-select-option" data-value="Применение ИИ-агентов в бизнесе">Применение ИИ-агентов в бизнесе</div>
+                    <div class="custom-select-option" data-value="SPIN-продажи в B2B">SPIN-продажи в B2B</div>
+                    <div class="custom-select-option" data-value="Холодные звонки и выход на ЛПР">Холодные звонки и выход на ЛПР</div>
+                    <div class="custom-select-option" data-value="Этапы продаж в ритейле">Этапы продаж в ритейле</div>
+                    <div class="custom-select-option" data-value="Управление SMART">Управление по SMART</div>
+                    <div class="custom-select-option" data-value="Шахматы как модель управления">Шахматы как модель управления</div>
+                    <div class="custom-select-option active" data-value="Индивидуальная программа">Индивидуальный формат под команду</div>
+                  </div>
+                </div>
+
+                <div class="form-field-box form-field-box-textarea">
+                  <div class="form-field-icon form-field-icon-textarea" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  </div>
+                  <div class="form-field-content">
+                    <label for="form-comment" class="form-field-label">Комментарий или число участников</label>
+                    <textarea id="form-comment" name="comment" rows="2" class="form-field-textarea"></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="contacts-submit-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  <span>Отправить запрос на обучение</span>
+                  <span class="btn-arrow-icon" aria-hidden="true">→</span>
+                </button>
+
+                <div class="form-security-note">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>Ваши данные не передаются третьим лицам</span>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================================================
+       MODAL: ДЕТАЛЬНАЯ ПРОГРАММА ТРЕНИНГА
+       ========================================================================= -->
+  <div class="modal-overlay" id="training-modal-overlay" aria-hidden="true">
+    <div class="modal-dialog training-large-modal">
+      <button class="modal-close-btn" data-close-training-modal aria-label="Закрыть">✕</button>
+      
+      <div class="training-large-grid">
+        <!-- Левая колонка модалки: Обложка и параметры -->
+        <aside class="training-modal-aside">
+          <div class="training-modal-cover">
+            <img src="" alt="" id="modal-cover-img">
+          </div>
+
+          <div class="training-modal-params">
+            <div class="param-row">
+              <span class="param-label">Длительность:</span>
+              <span class="param-val" id="modal-duration-val"></span>
+            </div>
+            <div class="param-row">
+              <span class="param-label">Формат:</span>
+              <span class="param-val" id="modal-format-val"></span>
+            </div>
+            <div class="param-row">
+              <span class="param-label">Для кого:</span>
+              <div class="param-val" id="modal-audience-val"></div>
+            </div>
+            <div class="param-row" id="modal-price-row" style="display: none;">
+              <span class="param-label">Стоимость:</span>
+              <span class="param-val" id="modal-price-val" style="color: var(--accent);"></span>
+            </div>
+          </div>
+
+          <div class="training-modal-pdf-block">
+            <a href="#" id="modal-pdf-btn" download="" class="btn btn-outline btn-block">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Скачать PDF-программу
+            </a>
+          </div>
+        </aside>
+
+        <!-- Правая колонка модалки: Подробный учебный план -->
+        <main class="training-modal-main">
+          <h2 class="training-modal-title" id="modal-title-val"></h2>
+          
+          <div class="modal-section-block">
+            <h3 class="modal-block-label">Что входит в учебный план:</h3>
+            <ul class="modal-syllabus-list" id="modal-syllabus-list"></ul>
+          </div>
+
+          <div class="modal-section-block" id="modal-experience-block" style="display: none;">
+            <h3 class="modal-block-label">Подтвержденный практический опыт:</h3>
+            <p class="modal-block-text" id="modal-experience-val"></p>
+          </div>
+
+          <div class="modal-section-block" id="modal-security-block">
+            <h3 class="modal-block-label">Безопасность и регламенты:</h3>
+            <p class="modal-block-text" id="modal-security-val"></p>
+          </div>
+
+          <div class="modal-section-block" id="modal-materials-block">
+            <h3 class="modal-block-label">Материалы для участников:</h3>
+            <p class="modal-block-text" id="modal-materials-val"></p>
+          </div>
+
+          <div class="training-modal-footer">
+            <button class="btn btn-primary" id="modal-book-btn">
+              Запросить проведение для команды
+            </button>
+            <button class="btn btn-secondary" data-close-training-modal>
+              Закрыть
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: БЫСТРЫЙ ЗАПРОС ОБУЧЕНИЯ
+       ========================================================================= -->
+  <div class="modal-overlay" id="contact-modal" aria-hidden="true">
+    <div class="modal-dialog inquiry-large-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Закрыть">✕</button>
+      
+      <div class="inquiry-modal-header">
+        <div class="inquiry-modal-eyebrow">
+          <span class="inquiry-eyebrow-dot"></span>
+          <span>ПРЯМАЯ СВЯЗЬ С ТРЕНЕРОМ</span>
+        </div>
+        <h3 class="inquiry-modal-title">Обсудить корпоративное обучение</h3>
+        <p class="inquiry-modal-desc">
+          Оставьте контакты и выберите тему. Алексей лично свяжется с вами, ответит на все вопросы и подготовит коммерческое предложение под задачи вашей команды.
+        </p>
+      </div>
+
+      <div class="inquiry-modal-body">
+        <form id="quick-inquiry-form" class="inquiry-modal-form">
+          
+          <div class="inquiry-form-grid">
+            <!-- Поле 1: Ваше имя (обязательно) -->
+            <div class="inquiry-input-card">
+              <div class="inquiry-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <div class="inquiry-input-content">
+                <label for="modal-form-name" class="inquiry-input-label">Ваше имя *</label>
+                <input type="text" id="modal-form-name" name="name" class="inquiry-field-input" autocomplete="name" required>
+              </div>
+            </div>
+
+            <!-- Поле 2: Телефон, Telegram или Email (обязательно) -->
+            <div class="inquiry-input-card">
+              <div class="inquiry-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="inquiry-input-content">
+                <label for="modal-form-contact" class="inquiry-input-label">Телефон, Telegram или Email *</label>
+                <input type="text" id="modal-form-contact" name="contact" class="inquiry-field-input" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <!-- Поле 3: Компания (НЕ обязательно) -->
+            <div class="inquiry-input-card">
+              <div class="inquiry-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <div class="inquiry-input-content">
+                <label for="modal-form-company" class="inquiry-input-label">Компания / Сфера деятельности</label>
+                <input type="text" id="modal-form-company" name="company" class="inquiry-field-input" autocomplete="organization">
+              </div>
+            </div>
+
+            <!-- Поле 4: Тема обучения -->
+            <div class="inquiry-input-card">
+              <div class="inquiry-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <div class="inquiry-input-content">
+                <label for="modal-form-topic" class="inquiry-input-label">Тема обучения</label>
+                <input type="text" id="modal-form-topic" name="program" class="inquiry-field-input" value="Применение ИИ для бизнеса">
+              </div>
+            </div>
+          </div>
+
+          <!-- Поле 5: Комментарий или число участников (на всю ширину) -->
+          <div class="inquiry-input-card inquiry-textarea-card">
+            <div class="inquiry-input-icon inquiry-icon-textarea" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="inquiry-input-content">
+              <label for="modal-form-comment" class="inquiry-input-label">Комментарий или число участников</label>
+              <textarea id="modal-form-comment" name="comment" rows="2" class="inquiry-field-input inquiry-field-textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Кнопка отправки и плашка безопасности -->
+          <button type="submit" class="inquiry-submit-btn">
+            <span>Отправить заявку тренеру</span>
+            <span class="btn-arrow-icon" aria-hidden="true">→</span>
+          </button>
+
+          <div class="inquiry-security-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Ваши данные конфиденциальны и не передаются третьим лицам</span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Всплывающее уведомление (Toast) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js?v=programs_v15"></script>
+</body>
+</html>

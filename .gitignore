@@ -1,0 +1,26 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Large binaries & internal tools
+tools/
+tools/**
+
+# AI Agent internal skill folders
+.agent/
+.agents/
+.claude/
+.codex/
+.gemini/
+.opendesign/
+
+# Working source materials & drafts
+Обложки/
+*.docx
+1.png
+2.jfif
+*.tmp
+*.log
