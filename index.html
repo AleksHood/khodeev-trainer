@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=header_cta_v28">
+  <link rel="stylesheet" href="style.css?v=mobile_v32">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon.png">
 </head>
@@ -38,8 +38,9 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#contacts" class="btn btn-primary btn-sm">
-          Обсудить обучение
+        <a href="#contacts" class="btn btn-primary btn-sm header-cta-btn">
+          <span class="header-btn-text-full">Обсудить обучение</span>
+          <span class="header-btn-text-mob">Обсудить</span>
         </a>
       </div>
     </div>
@@ -105,10 +106,21 @@
                 <img src="assets/images/social_setka.webp" alt="Сетка" class="social-setka-icon" width="20" height="19">
               </a>
             </div>
+
+            <!-- Высококонверсионная кнопка заявки для мобильной версии -->
+            <a href="#contacts" class="btn btn-primary hero-mobile-cta">
+              <span>Обсудить обучение</span>
+              <span class="btn-arrow-icon" aria-hidden="true">→</span>
+            </a>
           </div>
 
-          <!-- Правая колонка: Пространство под фигуру в едином интегрированном фоне -->
-          <div class="hero-visual-wrap" aria-hidden="true"></div>
+          <!-- Правая колонка: Пространство под фигуру (на десктопе в фоне, на смартфонах — адаптивный визуальный блок) -->
+          <div class="hero-visual-wrap" aria-hidden="true">
+            <div class="hero-mobile-visual">
+              <div class="hero-mobile-avatar-halo" aria-hidden="true"></div>
+              <img src="assets/images/alexey_hero_cutout.webp" alt="Алексей Ходеев" class="hero-mobile-figure-img" width="340" height="466" loading="eager">
+            </div>
+          </div>
 
         </div>
       </div>
@@ -736,17 +748,73 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                   </div>
 
-                  <!-- Выпадающее окно: просторное, с центровкой названий программ посередине -->
+                  <!-- Выпадающее окно: категории + список программ -->
                   <div class="custom-select-dropdown" id="custom-select-dropdown" role="listbox">
-                    <div class="custom-select-option" data-value="Работа с таблицами при помощи ИИ">Работа с таблицами при помощи ИИ</div>
-                    <div class="custom-select-option" data-value="Создание презентаций и анализ данных">Создание презентаций и анализ данных</div>
-                    <div class="custom-select-option" data-value="Применение ИИ-агентов в бизнесе">Применение ИИ-агентов в бизнесе</div>
-                    <div class="custom-select-option" data-value="SPIN-продажи в B2B">SPIN-продажи в B2B</div>
-                    <div class="custom-select-option" data-value="Холодные звонки и выход на ЛПР">Холодные звонки и выход на ЛПР</div>
-                    <div class="custom-select-option" data-value="Этапы продаж в ритейле">Этапы продаж в ритейле</div>
-                    <div class="custom-select-option" data-value="Управление SMART">Управление по SMART</div>
-                    <div class="custom-select-option" data-value="Шахматы как модель управления">Шахматы как модель управления</div>
-                    <div class="custom-select-option active" data-value="Индивидуальная программа">Индивидуальный формат под команду</div>
+                    <!-- 4 кнопки-фильтра по направлениям -->
+                    <div class="select-category-bar" role="tablist" aria-label="Категории тренингов">
+                      <button type="button" class="select-cat-btn" data-category="ai">ИИ</button>
+                      <button type="button" class="select-cat-btn" data-category="sales">Продажи</button>
+                      <button type="button" class="select-cat-btn" data-category="mgmt">Управление</button>
+                      <button type="button" class="select-cat-btn active" data-category="custom">Индивидуальный формат</button>
+                    </div>
+
+                    <!-- Списки программ по категориям -->
+                    <div class="select-options-container">
+                      <!-- 1. ИИ (3 программы) -->
+                      <div class="select-category-group" data-category-group="ai">
+                        <div class="custom-select-option" data-value="Работа с таблицами при помощи ИИ">
+                          <span class="option-text">Работа с таблицами при помощи ИИ</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                        <div class="custom-select-option" data-value="Создание презентаций и анализ данных">
+                          <span class="option-text">Создание презентаций и анализ данных</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                        <div class="custom-select-option" data-value="Применение ИИ-агентов в бизнесе">
+                          <span class="option-text">Применение ИИ-агентов в бизнесе</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                      </div>
+
+                      <!-- 2. Продажи (3 программы) -->
+                      <div class="select-category-group" data-category-group="sales">
+                        <div class="custom-select-option" data-value="SPIN-продажи в B2B">
+                          <span class="option-text">SPIN-продажи в B2B</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                        <div class="custom-select-option" data-value="Холодные звонки и выход на ЛПР">
+                          <span class="option-text">Холодные звонки и выход на ЛПР</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                        <div class="custom-select-option" data-value="Этапы продаж в ритейле">
+                          <span class="option-text">Этапы продаж в ритейле</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                      </div>
+
+                      <!-- 3. Управление (2 программы) -->
+                      <div class="select-category-group" data-category-group="mgmt">
+                        <div class="custom-select-option" data-value="Управление SMART">
+                          <span class="option-text">Управление по SMART</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                        <div class="custom-select-option" data-value="Шахматы как модель управления">
+                          <span class="option-text">Шахматы как модель управления</span>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                      </div>
+
+                      <!-- 4. Индивидуальный формат (1 программа) -->
+                      <div class="select-category-group active" data-category-group="custom">
+                        <div class="custom-select-option active" data-value="Индивидуальная программа">
+                          <div class="custom-format-content">
+                            <span class="option-text option-text-bold">Индивидуальный формат под команду</span>
+                            <span class="option-sub">Адаптация программы под задачи, специфику и рабочие файлы вашей компании</span>
+                          </div>
+                          <span class="option-check" aria-hidden="true">✓</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -957,6 +1025,6 @@
 
   <!-- Всплывающее уведомление (Toast) -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="script.js?v=programs_v15"></script>
+  <script src="script.js?v=select_tabs_v30"></script>
 </body>
 </html>

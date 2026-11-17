@@ -724,6 +724,17 @@ button {
   text-shadow: none;
 }
 
+/* Дефолтные правила для десктопа: мобильные элементы скрыты */
+.hero-mobile-visual,
+.hero-mobile-cta,
+.header-btn-text-mob {
+  display: none !important;
+}
+
+.header-btn-text-full {
+  display: inline;
+}
+
 .hero-action-buttons {
   display: flex;
   align-items: center;
@@ -2551,7 +2562,7 @@ button {
   color: #1E7044;
 }
 
-/* Просторное выпадающее окно: центровка посередине, свободные отступы и современная тень */
+/* Просторное выпадающее окно выбора программ с вкладками по направлениям */
 .custom-select-dropdown {
   position: absolute;
   top: calc(100% + 6px);
@@ -2561,8 +2572,8 @@ button {
   background: #FFFFFF;
   border: 1px solid #CBD5E1;
   border-radius: 14px;
-  box-shadow: 0 20px 45px -8px rgba(15, 23, 42, 0.24), 0 8px 20px rgba(15, 23, 42, 0.08);
-  padding: 6px;
+  box-shadow: 0 18px 42px -8px rgba(15, 23, 42, 0.18), 0 6px 16px rgba(15, 23, 42, 0.06);
+  padding: 8px;
   z-index: 50;
   opacity: 0;
   visibility: hidden;
@@ -2571,6 +2582,9 @@ button {
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   max-height: none;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .custom-select-dropdown::-webkit-scrollbar {
@@ -2584,28 +2598,143 @@ button {
   transform: translateY(0);
 }
 
+/* 4 кнопки-фильтра (сегментный контрол) */
+.select-category-bar {
+  display: flex;
+  gap: 4px;
+  background: #F1F5F9;
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+}
+
+.select-cat-btn {
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #64748B;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.select-cat-btn:hover {
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.select-cat-btn.active {
+  background: #FFFFFF;
+  color: #047857;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+/* Контейнер списков программ */
+.select-options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-category-group {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.select-category-group.active {
+  display: flex;
+}
+
+/* Пункт программы */
 .custom-select-option {
-  padding: 8px 16px;
+  padding: 9px 14px;
   font-size: 0.88rem;
   font-weight: 500;
   color: #1E293B;
-  text-align: center;
+  text-align: left;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: all 0.15s ease;
   user-select: none;
-  line-height: 1.32;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  background: #FFFFFF;
 }
 
 .custom-select-option:hover {
-  background-color: #F1F5F9;
-  color: #1E7044;
+  background-color: #F8FAFC;
+  border-color: #E2E8F0;
+  color: #047857;
 }
 
 .custom-select-option.active {
   background-color: #ECFDF5;
+  border-color: #A7F3D0;
   color: #047857;
+  font-weight: 600;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-check {
+  font-size: 0.92rem;
   font-weight: 700;
+  color: #059669;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.15s ease;
+  margin-left: 8px;
+}
+
+.custom-select-option.active .option-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.custom-format-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.option-text-bold {
+  font-weight: 700;
+  color: #047857;
+}
+
+.option-sub {
+  font-size: 0.76rem;
+  color: #64748B;
+  line-height: 1.3;
+}
+
+@media (max-width: 540px) {
+  .select-category-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  .select-cat-btn {
+    padding: 7px 6px;
+    font-size: 0.80rem;
+  }
+  .custom-select-option {
+    padding: 9px 12px;
+    font-size: 0.85rem;
+  }
 }
 
 .form-field-box-textarea {
@@ -3360,160 +3489,354 @@ button {
 }
 
 @media (max-width: 768px) {
-  .header-inner {
+  /* =========================================================================
+     1. МОБИЛЬНАЯ НАВИГАЦИЯ И ШАПКА (PREMIUM FROSTED GLASS & THUMB DOCK)
+     ========================================================================= */
+  .header {
     height: auto;
-    padding: 12px 0;
+    background-color: rgba(8, 13, 10, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .header.scrolled {
+    background-color: rgba(251, 249, 245, 0.96);
+    border-bottom: 1px solid rgba(17, 26, 21, 0.08);
+    box-shadow: 0 4px 20px rgba(17, 26, 21, 0.06);
+  }
+
+  .header-inner {
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    padding: 10px 16px 8px;
+    gap: 8px 12px;
+  }
+
+  .logo-block {
+    gap: 10px;
+  }
+
+  .logo-avatar {
+    width: 38px;
+    height: 38px;
+    border-width: 2px;
+  }
+
+  .logo-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    transition: color 0.2s ease;
+  }
+
+  .logo-sub {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+  }
+
+  .header.scrolled .logo-title {
+    color: var(--fg-primary);
+  }
+
+  .header.scrolled .logo-sub {
+    color: var(--fg-muted);
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .header-cta-btn {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    min-height: 36px;
+    white-space: nowrap;
   }
 
   .nav-menu {
     order: 3;
     width: 100%;
-    margin-left: 0;
+    margin: 0;
+    padding: 3px 4px;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
     overflow-x: auto;
-    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
 
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header.scrolled .nav-menu {
+    background-color: rgba(17, 26, 21, 0.06);
+    border-color: rgba(17, 26, 21, 0.08);
+  }
+
+  .nav-link {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    padding: 6px 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 9999px;
+    color: rgba(255, 255, 255, 0.78);
+    transition: all 0.15s ease;
+  }
+
+  .header.scrolled .nav-link {
+    color: #475569;
+  }
+
+  .nav-link.active {
+    background-color: var(--accent) !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(30, 112, 68, 0.35);
+  }
+
+  /* =========================================================================
+     2. HERO SECTION НА СМАРТФОНАХ (АТМОСФЕРНЫЙ ТЕМНЫЙ СТУДИЙНЫЙ СТИЛЬ)
+     ========================================================================= */
   .hero-section {
+    position: relative;
     height: auto;
-    min-height: 0;
+    min-height: calc(100svh - 88px);
     max-height: none;
-    padding: calc(var(--header-height) + 16px) 0 24px;
-    background-color: var(--bg-page);
-    background-image: none;
+    padding: calc(88px + 12px) 0 36px;
+    background-color: #080D0A;
+    background-image: radial-gradient(circle at 50% 18%, rgba(30, 112, 68, 0.24) 0%, transparent 65%), url('assets/images/hero_office_bg_2k.webp?v=v_office_v1');
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .hero-trainer-overlay {
+    display: none !important;
+  }
+
+  .hero-particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
   }
 
   .hero-container {
     height: auto;
     max-height: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    z-index: 2;
+    position: relative;
+    width: 100%;
   }
 
   .hero-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 0;
+    width: 100%;
     height: auto;
   }
 
   .hero-visual-wrap {
     order: -1;
+    width: 100%;
+    display: flex;
     justify-content: center;
-    height: min(52vh, 440px);
+    align-items: flex-end;
+    margin-bottom: 8px;
+    height: auto;
   }
 
-  .hero-figure-container {
-    width: min(80vw, 360px);
-    height: 100%;
+  .hero-mobile-visual {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: clamp(230px, 32vh, 290px);
   }
 
-  .hero-figure-img {
-    display: block;
-    max-height: 100%;
+  .hero-mobile-avatar-halo {
+    position: absolute;
+    width: clamp(200px, 60vw, 260px);
+    height: clamp(200px, 60vw, 260px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(46, 168, 102, 0.42) 0%, rgba(30, 112, 68, 0.18) 50%, transparent 75%);
+    filter: blur(28px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-mobile-figure-img {
     height: 100%;
-    transform: none;
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
     object-position: bottom center;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.5));
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
   }
 
   .hero-content {
     align-self: auto;
-    padding: 20px 0 24px;
+    padding: 6px 12px 14px;
     text-align: center;
-  }
-
-  .hero-author-badge {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-social-links {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    background: radial-gradient(ellipse at 50% 45%, rgba(8, 13, 10, 0.78) 0%, rgba(8, 13, 10, 0.40) 65%, transparent 100%);
+    border-radius: 24px;
   }
 
   .hero-main-title {
-    font-size: clamp(2.85rem, 11.5vw, 4.15rem);
-    line-height: 1.08;
+    font-size: clamp(1.95rem, 8.4vw, 2.65rem);
+    line-height: 1.1;
+    font-weight: 800;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 auto 10px;
+    letter-spacing: -0.025em;
+    max-width: 380px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.85);
   }
 
-  .hero-lead-text {
-    font-size: 1.05rem;
-    margin-bottom: 24px;
+  .title-highlight {
+    color: #34D399;
+    text-shadow: 0 0 28px rgba(52, 211, 153, 0.75), 0 2px 14px rgba(0, 0, 0, 0.95);
   }
 
-  .hero-action-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
+  .hero-author-badge {
+    margin: 0 auto 16px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
   }
 
-  .hero-action-buttons .btn {
-    min-width: 0;
-    padding: 14px 18px;
-    white-space: normal;
+  .author-badge-role {
+    font-weight: 600;
+    color: #34D399;
+  }
+
+  .author-badge-name {
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .hero-mobile-cta {
+    display: inline-flex !important;
+    align-items: center;
     justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 0.96rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.38);
+    margin: 0 auto 16px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
-  .trainings-filter-bar {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 4px 2px 8px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  .hero-mobile-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(234, 88, 12, 0.5);
   }
 
-  .trainings-filter-bar::-webkit-scrollbar {
-    display: none;
+  .hero-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
   }
 
-  .trainings-grid,
-  .metrics-grid,
-  .upcoming-grid,
-  .form-row-2,
-  .form-fields-row {
-    grid-template-columns: 1fr;
+  .social-square-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
   }
 
-  .contacts-wrapper {
-    border-radius: 20px;
-  }
-
-  .contacts-trainer-visual {
-    display: none;
-  }
-
-  .contacts-info-card,
-  .contacts-form-card {
-    padding: 28px 20px;
-  }
-
-  .editorial-quote-box {
-    padding: 28px 24px;
-  }
-
-  /* 1. Мобильная версия блока опыта: 2 компании в ряд, только логотипы без подписей для компактности */
+  /* =========================================================================
+     3. TRUST BAR: БЛОК ПАРТНЕРОВ И ОПЫТА НА МОБИЛЬНЫХ
+     ========================================================================= */
   .trust-bar-section {
     min-height: auto;
-    padding: clamp(32px, 5vh, 44px) 0;
+    padding: 32px 0 36px;
   }
 
   .trust-header-block {
     margin-bottom: 18px;
   }
 
+  .trust-heading {
+    font-size: clamp(1.2rem, 5.2vw, 1.45rem);
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
   .trust-logos-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px;
+    width: 100%;
     max-width: 100%;
   }
 
   .trust-card {
     padding: 12px 10px;
-    min-height: 58px;
+    min-height: 60px;
     gap: 0;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .trust-card-logo-box {
@@ -3535,7 +3858,172 @@ button {
     display: none !important;
   }
 
-  /* 2. Блок «От бизнес-запроса к результату»: убираем крупные значки и номера шагов, оставляем чистый текст */
+  /* =========================================================================
+     4. КАТАЛОГ ТРЕНИНГОВ НА МОБИЛЬНЫХ
+     ========================================================================= */
+  .trainings-section {
+    padding: 38px 0;
+  }
+
+  .trainings-section .section-title {
+    font-size: clamp(1.6rem, 6.8vw, 2.1rem);
+    line-height: 1.18;
+    white-space: normal;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .trainings-filter-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 4px 16px 12px;
+    margin: 14px -16px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .trainings-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    font-size: 0.86rem;
+    padding: 8px 16px;
+    min-height: 40px;
+    border-radius: 9999px;
+    white-space: nowrap;
+  }
+
+  .trainings-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .training-card {
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(17, 26, 21, 0.06);
+  }
+
+  .training-card-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .training-card-body {
+    padding: 18px 16px;
+  }
+
+  .training-card-title {
+    font-size: 1.22rem;
+    line-height: 1.26;
+    margin-bottom: 10px;
+  }
+
+  .training-bullets li {
+    font-size: 0.90rem;
+    line-height: 1.45;
+  }
+
+  .training-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  .training-card-actions .btn {
+    min-height: 46px;
+    font-size: 0.90rem;
+    font-weight: 700;
+    border-radius: 9999px;
+  }
+
+  .training-card-actions .btn-primary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .training-card-actions .btn-outline {
+    padding: 0 16px;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+
+  /* =========================================================================
+     5. О ТРЕНЕРЕ И BENTO-БЛОКИ НА МОБИЛЬНЫХ
+     ========================================================================= */
+  .about-section {
+    padding: 38px 0;
+    min-height: auto;
+  }
+
+  .editorial-quote-box {
+    padding: 24px 18px;
+    border-radius: 18px;
+    margin-bottom: 26px;
+  }
+
+  .editorial-quote-text {
+    font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+    line-height: 1.42;
+    margin-bottom: 14px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .metric-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .metric-number {
+    font-size: 2rem;
+  }
+
+  .about-bento-wrapper {
+    border-radius: 20px;
+  }
+
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-bento-left,
+  .about-bento-right {
+    padding: 24px 16px;
+  }
+
+  .about-bento-col-header {
+    min-height: auto;
+    margin-bottom: 16px;
+  }
+
+  .about-bento-title,
+  .about-bento-right .about-bento-title {
+    font-size: clamp(1.5rem, 6.2vw, 1.85rem);
+    line-height: 1.15;
+  }
+
+  .bento-credentials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bento-credential-card {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
   .bento-step-icon,
   .bento-step-num {
     display: none !important;
@@ -3544,6 +4032,7 @@ button {
   .bento-step-card {
     padding: 12px 14px;
     gap: 0;
+    border-radius: 12px;
   }
 
   .bento-step-title {
@@ -3556,7 +4045,115 @@ button {
     line-height: 1.45;
   }
 
-  /* 3. Блок «Мой профессиональный фокус» в контактах: убираем иконки для лаконичности на мобильных */
+  /* =========================================================================
+     6. КОНТАКТЫ И ФОРМА ЗАЯВКИ НА МОБИЛЬНЫХ (ВЫСОКАЯ КОНВЕРСИЯ)
+     ========================================================================= */
+  .contacts-section {
+    padding: 38px 0;
+  }
+
+  .contacts-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-trainer-visual {
+    display: none !important;
+  }
+
+  .contacts-info-card {
+    padding: 26px 18px 22px;
+  }
+
+  .contacts-form-card {
+    padding: 24px 18px;
+  }
+
+  .contacts-title {
+    font-size: clamp(1.65rem, 7vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .contacts-quote-text {
+    font-size: 0.90rem;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+
+  .contacts-bar-ref {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .contacts-bar-btn {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+  }
+
+  .contacts-bar-sep {
+    display: none;
+  }
+
+  /* Строгая защита от автозума на iPhone: 16px на всех инпутах */
+  .form-field-input,
+  .form-field-textarea,
+  .form-field-select,
+  .inquiry-field-input,
+  .inquiry-field-textarea {
+    font-size: 16px !important;
+  }
+
+  /* Поля формы в 1 колонку на мобильных для простора и удобного ввода */
+  .form-fields-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Четкое отображение полного названия программы без обрезки */
+  .custom-select-value {
+    white-space: normal !important;
+    font-size: 0.88rem !important;
+    line-height: 1.32 !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  .contacts-section,
+  .trainings-section,
+  .about-section {
+    scroll-margin-top: 88px;
+  }
+
+  .form-field-box {
+    padding: 10px 14px;
+    min-height: 54px;
+    border-radius: 12px;
+  }
+
+  .contacts-submit-btn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    justify-content: center;
+  }
+
   .focus-icon-circle {
     display: none !important;
   }
@@ -3591,6 +4188,116 @@ button {
   .focus-desc {
     font-size: 0.76rem;
     line-height: 1.42;
+  }
+
+  /* =========================================================================
+     7. МОДАЛЬНЫЕ ОКНА НА МОБИЛЬНЫХ
+     ========================================================================= */
+  .modal-overlay {
+    padding: 12px 10px;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 20px;
+    max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .training-large-modal {
+    border-radius: 20px;
+  }
+
+  .training-modal-aside,
+  .training-modal-main {
+    padding: 20px 16px;
+  }
+
+  .training-modal-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  .modal-close-btn {
+    width: 40px;
+    height: 40px;
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+    z-index: 15;
+  }
+
+  .training-modal-footer {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .training-modal-footer .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.94rem;
+    justify-content: center;
+  }
+
+  .inquiry-large-modal {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .inquiry-submit-btn {
+    width: 100%;
+    min-height: 50px;
+    font-size: 0.96rem;
+  }
+
+  /* =========================================================================
+     8. ПОДВАЛ (FOOTER) НА МОБИЛЬНЫХ
+     ========================================================================= */
+  .footer {
+    padding: 28px 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 440px) {
+  .header-btn-text-full {
+    display: none !important;
+  }
+
+  .header-btn-text-mob {
+    display: inline !important;
+  }
+
+  .header-cta-btn {
+    padding: 7px 12px;
+    font-size: 0.80rem;
+  }
+
+  .hero-main-title {
+    font-size: 1.88rem;
+  }
+
+  .trust-logos-grid {
+    gap: 8px !important;
+  }
+
+  .trust-card {
+    min-height: 54px;
+    padding: 8px 6px;
   }
 }
 

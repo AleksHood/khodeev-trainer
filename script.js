@@ -211,6 +211,19 @@ document.addEventListener('DOMContentLoaded', () => {
         mouse.x = -1000;
         mouse.y = -1000;
       });
+
+      // Тактильное взаимодействие с частицами на экранах смартфонов
+      heroSection.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          mouse.x = e.touches[0].clientX - canvasRect.left;
+          mouse.y = e.touches[0].clientY - canvasRect.top;
+        }
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', () => {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      }, { passive: true });
     }
   }
 
@@ -892,11 +905,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdown = selectBox.querySelector('.custom-select-dropdown');
     const nativeSelect = selectBox.querySelector('#form-program');
     const options = selectBox.querySelectorAll('.custom-select-option');
+    const catBtns = selectBox.querySelectorAll('.select-cat-btn');
+    const catGroups = selectBox.querySelectorAll('.select-category-group');
     const contactForm = selectBox.closest('form');
+
+    const switchCategoryTab = (cat) => {
+      catBtns.forEach(btn => {
+        const isActive = btn.getAttribute('data-category') === cat;
+        btn.classList.toggle('active', isActive);
+      });
+      catGroups.forEach(grp => {
+        const isActive = grp.getAttribute('data-category-group') === cat;
+        grp.classList.toggle('active', isActive);
+      });
+    };
+
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const cat = btn.getAttribute('data-category');
+        switchCategoryTab(cat);
+      });
+    });
 
     const toggleDropdown = (open) => {
       const isOpen = open !== undefined ? open : !selectBox.classList.contains('is-open');
       if (isOpen) {
+        // Синхронизируем вкладку с текущей выбранной программой при открытии
+        const activeOpt = selectBox.querySelector('.custom-select-option.active');
+        if (activeOpt) {
+          const parentGroup = activeOpt.closest('.select-category-group');
+          if (parentGroup) {
+            switchCategoryTab(parentGroup.getAttribute('data-category-group'));
+          }
+        }
         selectBox.classList.add('is-open');
         if (trigger) trigger.setAttribute('aria-expanded', 'true');
       } else {
@@ -906,7 +948,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     selectBox.addEventListener('click', (e) => {
-      if (e.target.closest('.custom-select-option')) return;
+      if (e.target.closest('.custom-select-option') || e.target.closest('.select-category-bar')) return;
       toggleDropdown();
     });
 
@@ -914,7 +956,8 @@ document.addEventListener('DOMContentLoaded', () => {
       opt.addEventListener('click', (e) => {
         e.stopPropagation();
         const val = opt.getAttribute('data-value') || opt.textContent.trim();
-        const text = opt.textContent.trim();
+        const textEl = opt.querySelector('.option-text');
+        const text = textEl ? textEl.textContent.trim() : opt.textContent.trim();
 
         if (valueEl) valueEl.textContent = text;
         if (nativeSelect) {
@@ -924,6 +967,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         options.forEach(o => o.classList.remove('active'));
         opt.classList.add('active');
+
+        const parentGroup = opt.closest('.select-category-group');
+        if (parentGroup) {
+          switchCategoryTab(parentGroup.getAttribute('data-category-group'));
+        }
 
         toggleDropdown(false);
       });
@@ -952,8 +1000,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const defaultOpt = selectBox.querySelector('.custom-select-option[data-value="Индивидуальная программа"]') || options[options.length - 1];
             if (defaultOpt) {
               defaultOpt.classList.add('active');
-              if (valueEl) valueEl.textContent = defaultOpt.textContent.trim();
+              const textEl = defaultOpt.querySelector('.option-text');
+              if (valueEl) valueEl.textContent = textEl ? textEl.textContent.trim() : defaultOpt.textContent.trim();
               if (nativeSelect) nativeSelect.value = defaultOpt.getAttribute('data-value') || defaultOpt.textContent.trim();
+              switchCategoryTab('custom');
             }
           }
         }, 10);
